@@ -26,10 +26,10 @@ const RegisterPage = () => {
           message: "Email ya esta en uso ",
         })
       } else {
-        console.log("error al registrarse ", response.error)
+        //console.log("error al registrarse ", response.error)
       }
     } else {
-      console.log("registro exitoso ", values)
+      toast.success("¡Cuenta creada! Revisa tu correo para verificarla.")
     }
 
   }

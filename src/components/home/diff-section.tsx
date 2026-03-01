@@ -7,16 +7,15 @@ const DiffSection = ({ items }: { items: BeneItem[] }) => {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: "-60px" })
   return (
-    <section className="py-24 bg-[#F8FAFC]">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-2 bg-[#972bc2]  border-black  transform transition-transform duration-500  hover:-translate-y-4 hover:scale-105">
+      <div className="    ">
         <div className="rounded-2xl border border-slate-200 bg-white p-10 lg:p-14">
           <Reveal className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight">
-              ¿Por qué elegir StudieUp?
+             Diseñada para cualquier persona
             </h2>
             <p className="mt-4 text-[#64748B] max-w-xl mx-auto">
-              No somos otra app genérica. Construida desde cero pensando en el
-              estudiante universitario moderno.
+            
             </p>
           </Reveal>
 

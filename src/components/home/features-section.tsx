@@ -19,7 +19,7 @@ function StaggerCards({ items }: { items: BeneItem[] }) {
         <motion.div
           key={b.title}
           variants={cardFade}
-          className="group rounded-xl bg-white border border-slate-200 p-7 hover:border-purple-200 hover:shadow-md transition-all duration-300"
+          className="group rounded-xl bg-white border border-slate-200 p-7 hover:border-purple-500 hover:shadow-md transition-all duration-300"
         >
           <div className="w-10 h-10 rounded-lg bg-purple-50 flex items-center justify-center mb-5 group-hover:bg-purple-100 transition-colors">
             <b.icon className="w-5 h-5 text-[#9333EA]" />

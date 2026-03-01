@@ -4,10 +4,16 @@ import RoomChat from "./room-chat";
 interface Props {
   handleClickRoomId: (id: string) => void;
   activeRoomId?: string;
+  onDeleteRoom?: (roomId: string) => void;
 }
 
-const ListRoomChat = ({ handleClickRoomId, activeRoomId }: Props) => {
+const ListRoomChat = ({ handleClickRoomId, activeRoomId, onDeleteRoom }: Props) => {
   const { rooms, deleteRoom } = useRoomAction();
+
+  const handleDelete = async (roomId: string) => {
+    await deleteRoom(roomId);
+    onDeleteRoom?.(roomId);        // avisa al padre
+  };
 
   return (
     <div className="divide-y">
@@ -22,7 +28,7 @@ const ListRoomChat = ({ handleClickRoomId, activeRoomId }: Props) => {
             room={room}
             handleClickRoomId={handleClickRoomId}
             isActive={room.id === activeRoomId}
-            onDelete={deleteRoom}
+            onDelete={handleDelete}
           />
         ))
       )}
