@@ -74,7 +74,7 @@ const HomePage = () => {
 
   return (
     <div
-      className="min-h-screen bg-white antialiased"
+      className="min-h-screen bg-violet-500 antialiased"
       style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
     >
       <Navbar />
@@ -83,15 +83,15 @@ const HomePage = () => {
 
       <FeaturesSection items={benefits} />
 
-      <section id="how" className="py-24 bg-white">
+      <section id="how" className="py-24 bg-white ">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <p className="text-[#9333EA] text-xs font-semibold uppercase tracking-widest mb-3">
+          <div className="text-center mb-1">
+            {/* <p className="text-[#9333EA] text-xs font-semibold uppercase tracking-widest mb-3">
               Proceso
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight">
+            </p> */}
+            {/* <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight">
               Empieza en 3 pasos simples
-            </h2>
+            </h2> */}
           </div>
           <StepsSection steps={steps} />
         </div>
@@ -104,7 +104,7 @@ const HomePage = () => {
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0F172A] tracking-tight">
                 ¿Por qué elegir StudieUp?
               </h2>
-              <p className="mt-4 text-[#64748B] max-w-xl mx-auto">
+              <p className="mt-4 text-[#9d9e9e] max-w-xl mx-auto">
                 No somos otra app genérica. Construida desde cero pensando en
                 el estudiante universitario moderno.
               </p>

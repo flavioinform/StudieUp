@@ -26,6 +26,15 @@ const ChatPage = () => {
     setShowChat(false);
   };
 
+  // Agrega esta función junto a handleBack (línea ~25)
+  const handleDeleteRoom = (deletedId: string) => {
+    if (roomId === deletedId) {
+      setRoomId("");
+      setShowChat(false);
+    }
+  };
+
+
   return (
     <div className="h-[calc(100vh-5rem)] flex gap-3">
       {/* Sidebar - room list */}
@@ -58,6 +67,7 @@ const ChatPage = () => {
             <ListRoomChat
               handleClickRoomId={handleClickRoomId}
               activeRoomId={roomId}
+              onDeleteRoom={handleDeleteRoom}
             />
           </Suspense>
         </div>

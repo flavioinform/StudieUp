@@ -1,5 +1,5 @@
 import { useAuthActions } from "@/hooks/use-auth-actions"
-import { Book, Calendar, Coins, LayoutDashboard, LogOut, MessageCircle, Moon, Pencil, Sun, Timer, User } from "lucide-react"
+import { Book, Calendar, Coins, LayoutDashboard, LogOut, MessageCircle, Pencil, Timer, User } from "lucide-react"
 import { NavLink } from "react-router"
 import { Button } from "./ui/button"
 import { cn } from "@/lib/utils"
@@ -7,13 +7,13 @@ import { useTheme } from "@/layouts/root.layout"
 import { Switch } from "./ui/switch"
 
 const navigation = [
-  { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-  { name: "Mensajes", href: "/admin/chat", icon: MessageCircle },
+  { name: "Inicio", href: "/admin", icon: LayoutDashboard },
   { name: "Perfil", href: "/admin/profile", icon: User },
+  { name: "Mensajes", href: "/admin/chat", icon: MessageCircle },
   { name: "Tareas", href: "/admin/tasks", icon: Book },
+  { name: "Horario", href: "/admin/horario", icon: Calendar },
   { name: "Pomodoro", href: "/admin/pomodoro", icon: Timer },
   { name: "Promedio", href: "/admin/promedio", icon: Pencil },
-  { name: "Horario", href: "/admin/horario", icon: Calendar },
   { name: "Control de gastos", href: "/admin/gastos", icon: Coins }
 ]
 
@@ -50,19 +50,11 @@ const NavBar = () => {
         ))}
 
         {/* Theme toggle */}
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={toggleTheme}
-          className="ml-auto h-9 w-9 p-0"
-          title={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
-        >
-          {theme === "dark" ? (
-            <Switch className="h-4 w-4 text-yellow-400 " />
-          ) : (
-            <Switch className="h-4 w-4 text-slate-600 " />
-          )}
-        </Button>
+        <Switch
+          checked={theme === "dark"}
+          onCheckedChange={toggleTheme}
+          className="ml-auto"
+        />
 
         {/* Logout */}
         <Button

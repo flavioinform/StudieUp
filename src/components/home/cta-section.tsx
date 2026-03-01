@@ -37,8 +37,7 @@ const CtaSection = () => {
           animate={inView ? "visible" : "hidden"}
           className="mt-5 text-slate-400 text-lg max-w-xl mx-auto leading-relaxed"
         >
-          Únete a miles de estudiantes que ya logran más con StudieUp. Es gratis
-          para comenzar.
+          Únete y vive esta experiencia 
         </motion.p>
 
         <motion.div
@@ -51,7 +50,7 @@ const CtaSection = () => {
             to="/auth/register"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#9333EA] text-white font-semibold rounded-lg hover:bg-purple-500 transition-colors text-sm shadow-lg shadow-purple-500/20"
           >
-            Crear cuenta gratis
+            Crear cuenta 
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
@@ -68,8 +67,7 @@ const CtaSection = () => {
           animate={inView ? "visible" : "hidden"}
           className="mt-6 text-slate-600 text-xs"
         >
-          Sin tarjeta de crédito · Cancela cuando quieras · Plan básico siempre
-          gratis
+          
         </motion.p>
       </div>
     </section>

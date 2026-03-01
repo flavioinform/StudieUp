@@ -10,6 +10,7 @@ import {
   CardContent,
 } from "@/components/ui/card"
 import { Play, Pause, RotateCcw, Settings } from "lucide-react"
+import { playAlarm } from "./sonido"
 
 interface Props {
   duration: number
@@ -44,6 +45,7 @@ const FormPomodor = ({ duration }: Props) => {
           // Verificamos SI EL SIGUIENTE paso va a ser 0
           if (prevTime <= 1) {
             setIsActive(false); // Detenemos el reloj
+            playAlarm();
             toast.success("¡Pomodoro terminado!");
             return 0; // Fijamos en 0
           }
@@ -177,8 +179,8 @@ const FormPomodor = ({ duration }: Props) => {
             <Button
               size="icon"
               className={`h-14 w-14 rounded-full transition-colors ${isActive
-                  ? "bg-yellow-500 hover:bg-yellow-600"
-                  : "bg-primary hover:bg-primary/90"
+                ? "bg-yellow-500 hover:bg-yellow-600"
+                : "bg-primary hover:bg-primary/90"
                 }`}
               onClick={() => setIsActive(!isActive)}
             >

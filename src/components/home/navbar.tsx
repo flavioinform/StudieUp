@@ -54,7 +54,7 @@ const Navbar = () => {
             to="/auth/register"
             className="text-sm bg-[#9333EA] text-white font-semibold px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
           >
-            Comenzar gratis
+            Crea tu cuenta
           </Link>
         </div>
 

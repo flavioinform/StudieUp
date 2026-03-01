@@ -1,6 +1,8 @@
 import NavBar from "@/components/navbar"
+import { sendEmailVerification } from "firebase/auth"
 import { Suspense } from "react"
 import { Navigate, Outlet } from "react-router"
+import { toast } from "sonner"
 import { useSigninCheck, useUser } from "reactfire"
 
 const AdminLayout = () => {
@@ -39,7 +41,40 @@ const AdminLayout = () => {
 export default AdminLayout
 
 const AuthenticatedLayout = () => {
-  useUser({ suspense: true })
+  const { data: user } = useUser({ suspense: true })
+
+  if (user && !user.emailVerified) {
+    const handleResend = async () => {
+      try {
+        await sendEmailVerification(user)
+        toast.success("Correo reenviado, revisa tu bandeja de entrada")
+      } catch {
+        toast.error("Error al reenviar, espera un momento e intenta de nuevo")
+      }
+    }
+
+    return (
+      <div className="flex flex-col items-center justify-center h-screen gap-4 text-center px-4">
+        <h2 className="text-xl font-semibold">Verifica tu correo</h2>
+        <p className="text-muted-foreground text-sm max-w-sm">
+          Te enviamos un email de verificación a <strong>{user.email}</strong>.
+          Revisa tu bandeja de entrada (y spam) y haz clic en el enlace.
+        </p>
+        <p className="text-xs text-muted-foreground">
+          Una vez verificado, recarga la página.
+        </p>
+        <button
+          onClick={handleResend}
+          className="text-sm text-primary underline underline-offset-4 hover:opacity-75 transition-opacity"
+        >
+          ¿No te llegó? Reenviar correo
+        </button>
+      </div>
+    )
+  }
+
+
+
 
   return (
     <div className="min-h-screen bg-muted/30">
